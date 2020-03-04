@@ -7,43 +7,43 @@ typedef struct mylist{
 }node;
 
 //insert in a linkdlist.
-void insert(node *s, int data){
-    while (s->next != NULL) {
-        s = s->next;
+void insert(node *n, int data){
+    while (n->next != NULL) {
+        n = n->next;
     }
-    s->next = (node*)malloc(sizeof(node));
-    s->next->data = data;
-    s->next->next = NULL;
+    n->next = (node*)malloc(sizeof(node));
+    n->next->data = data;
+    n->next->next = NULL;
 }
 
 //print a linkdlist.
-void display(node *s){
-    while (s->next != NULL) {
-        printf("%d\n", s->next->data);
-        s = s->next;
+void display(node *n){
+    while (n->next != NULL) {
+        printf("%d\n", n->next->data);
+        n = n->next;
     }
 }
 
 //search in a linkdlist.
-void search(node *s, int searchItem){
+void search(node *n, int searchItem){
     int count = 0;
-    while (s->next != NULL) {
-        if (s->next->data == searchItem) {
+    while (n->next != NULL) {
+        if (n->next->data == searchItem) {
             count ++;
         }
-        s = s->next;
+        n = n->next;
     }
     printf("\n%d Total %d result found\n", searchItem, count);
 }
 
 //delete in a linkdlist.
-void deleteNode(node *s, int data) {
-    while (s->next != NULL) {
-        if (s->next->data == data) {
-            s->next = s->next->next;
+void deleteNode(node *n, int data) {
+    while (n->next != NULL) {
+        if (n->next->data == data) {
+            n->next = n->next->next;
             return;
         }
-        s = s->next;
+        n = n->next;
     }
 }
 
